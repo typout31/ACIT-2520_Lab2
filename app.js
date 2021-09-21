@@ -10,12 +10,11 @@ var viewcount = JSON.parse(localStorage.getItem('viewcount'))
 if (viewcount == null) {
     var viewcount = {}
 }
-addMovieHistory('')
-console.log(window.localStorage.myMovieList_reference)
-if (window.localStorage.myMovieList === null) {
-    window.localStorage.myMovieList_reference = ""
-}
 myMovieList.innerHTML =  window.localStorage.myMovieList_reference;
+console.log(window.localStorage.myMovieList_reference)
+if (myMovieList.innerHTML == "undefined") {
+    myMovieList.innerHTML = ""
+}
 saved_history = {}
 
 
