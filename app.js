@@ -27,7 +27,7 @@ function clearInput() {
 function clearMovies() {
     // To delete all children of the <ul></ul> (meaning all <li>'s)..we can wipe out the <ul>'s innerHTML
     myMovieList.innerHTML = '';
-    window.localStorage.myMovieList_reference = "";
+    window.localStorage.myMovieList_reference = '';
 }
 
 function addMovieHistory(movieEvent) {
@@ -115,7 +115,10 @@ function addMovie() {
         li.appendChild(textToInsert);
 
         // Step 5: Insert the <li>Harry Potter</li> INTO the <ul>
-        myMovieList.appendChild(li);
+        if (!(userTypedText in viewcount)) {
+            myMovieList.appendChild(li);
+        } else {}
+        
         window.localStorage.myMovieList_reference +=`<li>${userTypedText}</li>`
         addMovieHistory(userTypedText);
         localStorage.setItem('viewcount', JSON.stringify(viewcount));
